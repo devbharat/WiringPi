@@ -66,7 +66,7 @@ HEADERS =	$(shell ls *.h)
 
 OBJ	=	$(SRC:.c=.o)
 
-all:		$(DYNAMIC)
+all:		$(STATIC)
 
 static:		$(STATIC)
 
