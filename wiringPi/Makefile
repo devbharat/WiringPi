@@ -32,7 +32,7 @@ Q ?= @
 endif
 
 STATIC=libwiringPi.a
-DYNAMIC=libwiringPi.so.$(VERSION)
+DYNAMIC=$(LIB_PATH)libwiringPi.so
 
 #DEBUG	= -g -O0
 DEBUG	= -O2
@@ -66,7 +66,7 @@ HEADERS =	$(shell ls *.h)
 
 OBJ	=	$(SRC:.c=.o)
 
-all:		$(DYNAMIC)
+all:		$(STATIC)
 
 static:		$(STATIC)
 
@@ -78,7 +78,7 @@ $(STATIC):	$(OBJ)
 
 $(DYNAMIC):	$(OBJ)
 	$Q echo "[Link (Dynamic)]"
-	$Q $(CC) -shared -Wl,-soname,libwiringPi.so$(WIRINGPI_SONAME_SUFFIX) -o libwiringPi.so.$(VERSION) $(LIBS) $(OBJ)
+	$Q $(CC) -shared -Wl,-soname,libwiringPi.so -o $@ $(LIBS) $(OBJ)
 
 .c.o:
 	$Q echo [Compile] $<
@@ -88,7 +88,7 @@ $(DYNAMIC):	$(OBJ)
 .PHONY:	clean
 clean:
 	$Q echo "[Clean]"
-	$Q rm -f $(OBJ) $(OBJ_I2C) *~ core tags Makefile.bak libwiringPi.*
+	$Q rm -f $(OBJ) $(OBJ_I2C) *~ core tags Makefile.bak $(DYNAMIC)
 
 .PHONY:	tags
 tags:	$(SRC)
