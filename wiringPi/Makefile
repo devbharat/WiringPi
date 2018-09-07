@@ -36,7 +36,7 @@ DYNAMIC=$(LIB_PATH)libwiringPi.so
 
 #DEBUG	= -g -O0
 DEBUG	= -O2
-CC	= gcc
+CC	?= gcc
 INCLUDE	= -I.
 DEFS	= -D_GNU_SOURCE
 NWFLAGS = -Wno-unused-function -Wno-unused-result -Wno-int-to-pointer-cast -Wno-pointer-to-int-cast
