@@ -1,6 +1,6 @@
 # Specify the minimum version for CMake
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.2)
 
 find_library(PTHREAD_LIBRARIES pthread)
 find_library(CRYPT_LIBRARIES crypt)
