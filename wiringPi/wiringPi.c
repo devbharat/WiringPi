@@ -2051,7 +2051,7 @@ void delayMicroseconds (unsigned int howLong)
   else
   {
     sleeper.tv_sec  = wSecs ;
-    sleeper.tv_nsec = (long)(uSecs * 1000L) ;
+    sleeper.tv_nsec = (uSecs * 1000L) ;
     nanosleep (&sleeper, NULL) ;
   }
 }
