@@ -7,7 +7,7 @@ find_library(CRYPT_LIBRARIES crypt)
 find_library(RT_LIBRARIES rt)
 find_library(M_LIBRARIES m)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${DEBUG} ${DEFS} -Wformat=2 -Wall -Wextra -Winline ${NWFLAGS} ${INCLUDE} -pipe -fPIC")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${DEBUG} ${DEFS} -Wformat=2 -Wall -Wextra -Wno-unused-function -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Winline ${NWFLAGS} ${INCLUDE} -pipe -fPIC")
 
 set(WIRINGPI_INC_DIRS "${OBC_SOURCE_DIR}/wiringPi/wiringPi")
 include_directories(${WIRINGPI_INC_DIRS})
